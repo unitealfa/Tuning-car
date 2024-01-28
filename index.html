@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typography Animation 01</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-color: #1e1e1e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            font-family: "Kanit", sans-serif;
+        }
+
+        .frame {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            font-size: 5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            line-height: 60px;
+            cursor: pointer;
+            margin-right: 20px; /* Espacement entre les divs */
+            margin-bottom: 20px; /* Espacement en bas */
+        }
+
+        :root {
+            --clr-alpha: #35a1ff;
+            --clr-beta: red;
+            --clr-omega: orange;
+            --clr-delta: green; /* Nouvelle couleur pour le texte delta */
+        }
+
+        .text {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+            transition: 0.1s ease;
+            transition-delay: 0.25s;
+        }
+
+        .hover-text {
+            position: absolute;
+            inset: 0;
+            width: 0%;
+            overflow: hidden;
+            transition: 0.5s ease-in-out;
+        }
+
+        .hover-text.alpha {
+            color: var(--clr-alpha);
+            border-right: 6px solid var(--clr-alpha);
+            filter: drop-shadow(0 0 40px var(--clr-alpha));
+        }
+
+        .hover-text.beta {
+            color: var(--clr-beta);
+            border-right: 6px solid var(--clr-beta);
+            filter: drop-shadow(0 0 40px var(--clr-beta));
+        }
+
+        .hover-text.omega {
+            color: var(--clr-omega);
+            border-right: 6px solid var(--clr-omega);
+            filter: drop-shadow(0 0 40px var(--clr-omega));
+        }
+
+        .hover-text.delta {
+            color: var(--clr-delta);
+            border-right: 6px solid var(--clr-delta);
+            filter: drop-shadow(0 0 40px var(--clr-delta));
+        }
+
+        .frame:hover .hover-text {
+            width: 100%;
+        }
+
+        .frame:hover .text {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="frame frame1">
+        <span class="text alpha">&nbsp;alpha&nbsp;</span>
+        <span class="hover-text alpha">&nbsp;alpha&nbsp;</span>
+    </div>
+    <div class="frame frame2">
+        <span class="text beta">&nbsp;beta&nbsp;</span>
+        <span class="hover-text beta">&nbsp;beta&nbsp;</span>
+    </div>
+    <div class="frame frame3">
+        <span class="text omega">&nbsp;omega&nbsp;</span>
+        <span class="hover-text omega">&nbsp;omega&nbsp;</span>
+    </div>
+    <div class="frame frame4">
+        <span class="text delta">&nbsp;delta&nbsp;</span>
+        <span class="hover-text delta">&nbsp;delta&nbsp;</span>
+    </div>
+</body>
+</html>
